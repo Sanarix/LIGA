@@ -1,0 +1,153 @@
+/* Mobile-first */
+
+.container {
+  display: grid;
+  grid-template-rows: repeat(auto-fill, minmax(10%, 50%));
+}
+
+.container__header {
+  display: grid;
+  row-gap: 20%;
+  justify-items: center;
+}
+
+.header__links-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  width: 100%;
+}
+
+.header__link {
+  min-width: 23px;
+  max-height: 23px;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+}
+
+.container__img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Цветовые блоки */
+
+.red-square {
+  width: 100%;
+  min-height: 320px;
+  background-color: #a61c1c;
+}
+
+.color-block {
+  width: 100%;
+  background-color: #a6806b;
+}
+
+/* ---------- */
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2% 5%;
+  color: #f2f2f2;
+  font-size: 18px;
+  font-family: Inter, serif;
+  background-color: #828282;
+}
+
+/* Медиа запросы */
+
+@media (width >= 768px) {
+  .container {
+    grid-template-rows: repeat(auto-fit, minmax(10%, 100%));
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .container__header {
+    width: 100%;
+  }
+}
+
+@media (width >= 992px) {
+  .container {
+    grid-auto-rows: minmax(10%, 50%);
+    grid-template-columns: repeat(3, 1fr);
+    width: 80%;
+  }
+
+  .footer {
+    grid-column-end: span 3;
+  }
+}
+
+@media screen and (width >= 1280px) {
+  .container {
+    grid-auto-flow: row;
+    grid-template:
+      "main   girlInHat girlInHat   laughingGirl girlWithFlowers" 288px
+      "main   girlInHat girlInHat   Room         red-square" 185px
+      "footer coffee    color-block Room         boy" 248px
+      / 458px 199px 165px 226px 232px;
+    width: 1280px;
+    height: 720px;
+  }
+
+  /* картинки */
+
+  .container__header {
+    height: 473px;
+  }
+
+  .girlInHat {
+    grid-area: girlInHat;
+  }
+
+  .laughingGirl {
+    grid-area: laughingGirl;
+  }
+
+  .girlWithFlowers {
+    grid-area: girlWithFlowers;
+  }
+
+  .Room {
+    grid-area: Room;
+  }
+
+  .red-square {
+    grid-area: red-square;
+  }
+
+  .boy {
+    grid-area: boy;
+  }
+
+  .color-block {
+    grid-area: color-block;
+    height: 100%;
+  }
+
+  .coffee {
+    grid-area: coffee;
+  }
+
+  /* ------------ */
+
+  .footer {
+    display: flex;
+    grid-area: footer;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+    color: #f2f2f2;
+    font-size: 18px;
+    font-family: Inter, serif;
+    background-color: #828282;
+  }
+}
